@@ -1,8 +1,5 @@
 import { Component, OnInit ,Input} from '@angular/core';
-import { MediaChange, ObservableMedia } from '@angular/flex-layout';
-
-
-
+import { MediaChange, MediaObserver } from '@angular/flex-layout';
 
 @Component({
   selector: 'app-auth',
@@ -24,12 +21,12 @@ export class AuthComponent implements OnInit{
    this.visibility = this.isVisible ? 'shown' : 'hidden';
   }
 
-	constructor(private media: ObservableMedia) { }
+	constructor(private media: MediaObserver) { }
 
 	ngOnInit() {
-		this.media.subscribe((mediaChange: MediaChange) => {
-            this.toggleView();
-        });
+		this.media.asObservable().subscribe(() => {
+      this.toggleView();
+    });
 	}
     getRouteAnimation(outlet) {
 

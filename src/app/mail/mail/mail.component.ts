@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MatDialog, MatSnackBar } from '@angular/material';
-import { MediaChange, ObservableMedia } from "@angular/flex-layout";
+import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { MediaChange, MediaObserver } from "@angular/flex-layout";
 
 import { ComposeComponent } from '../compose/compose.component';
 
@@ -19,18 +20,18 @@ export class MailComponent implements OnInit {
     constructor(public composeDialog: MatDialog,
               private snackBar: MatSnackBar,
               @Inject('mailService') private service,
-              private media: ObservableMedia) {
+              private media: MediaObserver) {
         this.getMails();
     }
 
     ngOnInit() {
-        this.updateHieght();
-        this.media.subscribe((mediaChange: MediaChange) => {
-            this.updateHieght();
+        this.updateHeight();
+        this.media.asObservable().subscribe(() => {
+            this.updateHeight();
         });
     }
 
-    updateHieght() {
+    updateHeight() {
         let body = document.body, html = document.documentElement;
         let h = Math.max( body.scrollHeight, body.offsetHeight, 
                        html.clientHeight, html.scrollHeight, html.offsetHeight ) - 66;

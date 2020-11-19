@@ -12,26 +12,24 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material';
-import { MatProgressSpinnerModule,
-         MatRadioModule,
-         MatSliderModule,
-         MatCardModule,
-         MatAutocompleteModule,
-         MatCheckboxModule,
-         MatSlideToggleModule,
-         MatSelectModule,
-         MatProgressBarModule,
-         MatMenuModule,
-
- } from '@angular/material';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatCardModule } from '@angular/material/card';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatSelectModule } from '@angular/material/select';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatMenuModule } from '@angular/material/menu';
 
 
 import { MaterialWidgetsRouterModule } from './material-widgets.router';
 
-import * as hljs from 'highlight.js';
-import { HighlightJsModule, HIGHLIGHT_JS } from 'angular-highlight-js';
-import * as hljsTypescript from 'highlight.js/lib/languages/typescript';
+// import * as hljs from 'highlight.js';
+import { HighlightModule, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
+// const hljsTypescript = require('highlight.js/lib/languages/typescript');
 import { ListComponent } from './list/list.component';
 import { ButtonsComponent } from './buttons/buttons.component';
 import { StepperComponent } from './stepper/stepper.component';
@@ -54,10 +52,10 @@ import { SelectComponent } from './select/select.component';
 
 
 
-export function highlightJsFactory(): any {
-  hljs.registerLanguage('typescript', hljsTypescript);
-  return hljs;
-}
+// export function highlightJsFactory(): any {
+//   hljs.registerLanguage('typescript', require('highlight.js/lib/languages/typescript'));
+//   return hljs;
+// }
 
 @NgModule({
   imports: [
@@ -86,10 +84,7 @@ export function highlightJsFactory(): any {
     MatSelectModule,
     MatSlideToggleModule,
     MatProgressBarModule,
-    HighlightJsModule.forRoot({
-      provide: HIGHLIGHT_JS,
-      useFactory: highlightJsFactory
-    }),
+    HighlightModule,
     MaterialWidgetsRouterModule
   ],
   declarations: [
@@ -114,13 +109,19 @@ export function highlightJsFactory(): any {
     InputComponent,
     RadioComponent,
     SelectComponent,
-    
-
-
-    ],
-
-  exports: [
-    ]
-      
+  ],
+  providers: [
+    {
+      provide: HIGHLIGHT_OPTIONS,
+      useValue: {
+        coreLibraryLoader: () => import('highlight.js/lib/core'),
+        languages: {
+          typescript: () => import('highlight.js/lib/languages/typescript')
+        }
+      }
+    }
+  ],
+  exports: []
 })
+
 export class MaterialWidgetsModule { }

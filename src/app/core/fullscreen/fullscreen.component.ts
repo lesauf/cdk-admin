@@ -14,8 +14,8 @@ export class FullscreenComponent implements OnInit {
   	}
 
   	toggleFullscreen() {
-	    if (screenfull.enabled) {
-	      	screenfull.toggle();
+	    if (screenfull.isEnabled) {
+	      	// screenfull.toggle();
 	      	this.isFullscreen = !this.isFullscreen;
 	    }
   	}

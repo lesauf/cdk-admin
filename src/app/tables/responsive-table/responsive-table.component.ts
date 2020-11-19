@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation, Input,Output,EventEmitter, ViewChild } from '@angular/core';
 import { ResponsiveTableHelpers } from './helpers.data';
-import { MatPaginator } from '@angular/material';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'cdk-responsive-table',

@@ -1,15 +1,11 @@
 
 import {merge as observableMerge, BehaviorSubject, Observable} from 'rxjs';
 
-import {map} from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
-import {DataSource} from '@angular/cdk/collections';
-import {MatPaginator, MatSort} from '@angular/material';
-
-
-
-
-
+import { DataSource } from '@angular/cdk/collections';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 
 import { UserData } from '../interfaces';
 
@@ -95,7 +91,8 @@ export const TABLE_HELPERS = {
 `.trim(),
   allFeaturesTabletssource:`import {Component, ElementRef, ViewChild} from '@angular/core';
 import {DataSource} from '@angular/cdk/collections';
-import {MatPaginator, MatSort} from '@angular/material';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 import {SelectionModel} from '@angular/cdk/collections';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import {Observable} from 'rxjs/Observable';

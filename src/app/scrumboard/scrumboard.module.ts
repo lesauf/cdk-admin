@@ -2,14 +2,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ScrumboardComponent } from './scrumboard.component';
 import { Routes, RouterModule } from '@angular/router';
-import { DndModule } from 'ng2-dnd';
+// import { DndModule } from 'ng2-dnd';
 import { FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from "@angular/flex-layout";
-import { 
-        MatToolbarModule,
-        MatListModule,
-        MatCardModule
-    } from '@angular/material';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatListModule } from '@angular/material/list';
+import { MatCardModule } from '@angular/material/card';
+
 export const ROUTES: Routes = [
    { path: '', component: ScrumboardComponent }, 
 ];
@@ -17,7 +16,7 @@ export const ROUTES: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(ROUTES),
-    DndModule.forRoot(),
+    // DndModule.forRoot(),
     FormsModule,
     MatToolbarModule,
     FlexLayoutModule,
