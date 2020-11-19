@@ -17,7 +17,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { PricingPlanComponent } from './pricing-plan/pricing-plan.component';
 import { MatListModule } from '@angular/material/list';
 import { WeatherComponent } from './weather/weather.component';
-import { Ng2OdometerModule } from 'ng2-odometer';
+// import { Ng2OdometerModule } from 'ng2-odometer';
 import { SharePriceComponent } from './share-price/share-price.component';
 import { RoundProgressbarComponent } from './round-progressbar/round-progressbar.component'; 
 import { RoundProgressModule } from 'angular-svg-round-progressbar';
@@ -35,7 +35,7 @@ import { WorldMapComponent } from './world-map/world-map.component';
     MatTabsModule,
     MatToolbarModule,
     MatListModule,
-    Ng2OdometerModule,
+    // Ng2OdometerModule,
     RoundProgressModule,
     MatMenuModule,
     MatChipsModule,
