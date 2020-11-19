@@ -82,9 +82,7 @@ import { FixedTableComponent } from './fixed-table/fixed-table.component';
       }
     }
   ],
-  exports: [
-    ]
-      
+  exports: []
 })
 export class TablesModule { }
 

@@ -22,9 +22,9 @@ export class FeatureTableComponent implements OnInit {
 	dataSource: ExampleDataSource | null;
 	allfeatures = TABLE_HELPERS;
 	constructor() { }
-	@ViewChild(MatPaginator) paginator: MatPaginator;
-	@ViewChild(MatSort) sort: MatSort;
-	@ViewChild('filter') filter: ElementRef;
+	@ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
+	@ViewChild(MatSort, { static: false }) sort: MatSort;
+	@ViewChild('filter', { static: false }) filter: ElementRef;
 
 	ngOnInit() {
 	    this.dataSource = new ExampleDataSource(this.exampleDatabase, this.paginator, this.sort);
